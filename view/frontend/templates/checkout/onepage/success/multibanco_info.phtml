@@ -1,0 +1,55 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+
+/**
+ * @var \Ifthenpay\Multibanco\Block\Checkout\Onepage\Success\MultibancoInfo $block
+ */
+?>
+<p>
+<div>
+<table style="width: 300px; margin: 0 auto;">
+  <tbody>
+    <tr>
+      <td colspan="2" style="text-align: center;border-bottom: 1px solid black;font-weight: bold; font-size: 12px;">
+        Pagamento por Multibanco ou Homebanking
+        <br />
+        <img src="<?php echo $block->getViewFileUrl('Ifthenpay_Multibanco::images/multibanco.jpg')?>" style="width: 100px;" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Entidade
+      </td>
+      <td style="text-align: right;font-weight: bold;">
+         <?php echo $block->getEntidade(); ?>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Referência
+      </td>
+      <td style="font-weight: bold;text-align: right;">
+         <?php echo $block->getReferencia(true); ?>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Valor
+      </td>
+      <td style="font-weight: bold;text-align: right;">
+         <?php echo $block->getValor(); ?>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;font-weight: bold;border-top: 1px solid black; font-size: 7px;">
+        O talao emitido pela caixa automatica faz prova de pagamento. Conserve-o.
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</p>

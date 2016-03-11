@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Ifthenpay_Multibanco module dependency
+*
+* @category    Ifthenpay
+* @package     Ifthenpay_Multibanco
+* @author      Manuel Rocha
+* @copyright   Ifthenpay (http://www.ifthenpay.com)
+* @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="ifthenpay" frontName="ifthenpay">
+            <module name="Ifthenpay_Multibanco" />
+        </route>
+    </router>
+</config>
