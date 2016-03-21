@@ -1,6 +1,6 @@
 {
     "name": "ifthenpay/multibanco",
-    "description": "Método de pagamento multibanco Ifthenpay para  Magento 2",
+    "description": "Método de pagamento multibanco Ifthenpay para Magento 2",
     "type": "magento2-module",
     "version": "1.0.0",
     "license": [
@@ -20,9 +20,6 @@
     "autoload": {
         "files": [
             "registration.php"
-        ],
-        "psr-4": {
-            "Ifthenpay\\Multibanco\\": ""
-        }
+        ]
     }
 }

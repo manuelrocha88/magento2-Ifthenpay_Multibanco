@@ -20,7 +20,7 @@ Install
 
     ```bash
     composer config repositories.ifthenpaymultibanco git https://github.com/manuelrocha88/magento2-Ifthenpay_Multibanco.git
-    composer require ifthenpay/multibanco:dev-master
+    composer require ifthenpay/multibanco:1.0.0
     ```
    Wait while dependencies are updated.
 
@@ -31,3 +31,14 @@ Install
     php bin/magento setup:upgrade
     ```
 4. Enable and configure Ifthenpay Multibanco in Magento Admin under Stores/Configuration/Payment Methods/Ifthenpay Multibanco
+
+Support
+=======
+
+Have some problem with this module?
+
+Do you have some kind of a problem with your Magento installation?
+
+Do you need some special plugin?
+
+Send me an email and ask for help or a quote: manuelrocha@manuelrocha.biz

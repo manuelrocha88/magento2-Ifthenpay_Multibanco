@@ -1,8 +1,14 @@
 <?php
 /**
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
+* Ifthenpay_Multibanco module dependency
+*
+* @category    Gateway Payment
+* @package     Ifthenpay_Multibanco
+* @author      Manuel Rocha
+* @copyright   Manuel Rocha (http://www.manuelrocha.biz)
+* @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+
 namespace Ifthenpay\Multibanco\Model;
 
 use Magento\Checkout\Model\ConfigProviderInterface;

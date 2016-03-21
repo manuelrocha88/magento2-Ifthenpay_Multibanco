@@ -1,10 +1,10 @@
 /**
 * Ifthenpay_Multibanco module dependency
 *
-* @category    Ifthenpay
+* @category    Gateway Payment
 * @package     Ifthenpay_Multibanco
 * @author      Manuel Rocha
-* @copyright   Ifthenpay (http://www.ifthenpay.com)
+* @copyright   Manuel Rocha (http://www.manuelrocha.biz)
 * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
 */
 /*browser:true*/
