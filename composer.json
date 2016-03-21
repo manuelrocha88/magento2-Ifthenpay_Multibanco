@@ -2,7 +2,7 @@
     "name": "ifthenpay/multibanco",
     "description": "Método de pagamento multibanco Ifthenpay para Magento 2",
     "type": "magento2-module",
-    "version": "dev-master",
+    "version": "1.0.0",
     "license": [
         "OSL-3.0"
     ],
