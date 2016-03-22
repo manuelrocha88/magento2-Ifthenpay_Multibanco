@@ -19,7 +19,7 @@ Install
 2. Enter following commands to install module:
 
     ```bash
-    composer require manuelrocha88/magento2-ifthenpay_multibanco:1.0.0
+    composer require ifthenpay/multibanco-magento
     ```
    Wait while dependencies are updated.
 
