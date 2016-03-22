@@ -17,8 +17,7 @@ Install
 2. Enter following commands to install module:
 
     ```bash
-    composer config repositories.ifthenpaymultibanco git https://github.com/manuelrocha88/magento2-Ifthenpay_Multibanco.git
-    composer require ifthenpay/multibanco:1.0.0
+    composer require manuelrocha88/magento2-ifthenpay_multibanco:1.0.0
     ```
    Wait while dependencies are updated.
 
