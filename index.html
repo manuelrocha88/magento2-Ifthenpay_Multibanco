@@ -35,7 +35,7 @@
 <p>For more information visit us at <a href="http://www.ifthenpay.com">http://www.ifthenpay.com</a>.</p>
 
 <h1>
-<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h1>
+<a id="install-using-composer" class="anchor" href="#install-using-composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install using Composer</h1>
 
 <ol>
 <li><p>Go to Magento2 root folder</p></li>
@@ -52,7 +52,20 @@
 <div class="highlight highlight-source-shell"><pre>php bin/magento module:<span class="pl-c1">enable</span> Ifthenpay_Multibanco --clear-static-content
 php bin/magento setup:upgrade</pre></div>
 </li>
-<li>Enable and configure Ifthenpay Multibanco in Magento Admin under Stores/Configuration/Payment Methods/Ifthenpay Multibanco</li>
+<li>Enable and configure Ifthenpay Multibanco in Magento Admin under <strong>Stores/Configuration/Payment Methods/Ifthenpay Multibanco</strong>
+</li>
+</ol>
+
+<h1>
+<a id="install-using-file-upload" class="anchor" href="#install-using-file-upload" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install using File Upload</h1>
+
+<ol>
+<li><p>Download the file that contain the last version of the module</p></li>
+<li><p>At Magento 2 root folder go to the <strong>app</strong> folder and create the structure <strong>code/Ifthenpay/Multibanco</strong></p></li>
+<li><p>Put the content of the ZIP file inside the folder <strong>Multibanco</strong> created at step 2</p></li>
+<li><p>After that go to your <strong>Magento 2 Administration</strong>, click <strong>System</strong> option and then <strong>Web Setup Wizard</strong></p></li>
+<li><p>On the new page click the <strong>Component Manager</strong> button and search for the component with name <strong>ifthenpay/multibanco-magento</strong> and *<em>Enable</em> it at the action column</p></li>
+<li><p>Enable and configure Ifthenpay Multibanco in Magento Admin under <strong>Stores/Configuration/Payment Methods/Ifthenpay Multibanco</strong></p></li>
 </ol>
 
 <h1>
@@ -65,6 +78,16 @@ php bin/magento setup:upgrade</pre></div>
 <p>Do you need some special plugin?</p>
 
 <p>Send me an email and ask for help or a quote: <a href="mailto:manuelrocha@manuelrocha.biz">manuelrocha@manuelrocha.biz</a></p>
+
+<h1>
+<a id="found-a-bug" class="anchor" href="#found-a-bug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Found a bug?</h1>
+
+<p>Do you found a bug on my code? Help me to fix it:</p>
+
+<ul>
+<li><p><a href="https://github.com/manuelrocha88/magento2-Ifthenpay_Multibanco/issues/new">Open an Issue</a> and describe where you found the bug/problem and/or explain how can I replicate the issue.</p></li>
+<li><p>Fork the project, fix it and make a request.</p></li>
+</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/manuelrocha88/magento2-Ifthenpay_Multibanco">Magento2-ifthenpay multibanco</a> is maintained by <a href="https://github.com/manuelrocha88">manuelrocha88</a>.</span>
