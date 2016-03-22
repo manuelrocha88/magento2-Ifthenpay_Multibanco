@@ -1,9 +1,7 @@
-magento2-Ifthenpay_Multibanco
-======================
+Ifthenpay Multibanco payment gateway extension for Magento2
+===========================================================
 
-Ifthenpay Multibanco payment gateway Magento2 extension
-
-This is the official module of Ifthenpay Multibanco Payment Gateway for Magento.
+This is the official module of Ifthenpay Multibanco Payment Gateway for Magento 2.
 
 The IFTHENPAY is a Payment Institution authorized by the Bank of Portugal, the market leader in online payments by ATM references.
 

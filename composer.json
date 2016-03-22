@@ -1,20 +1,29 @@
 {
-    "name": "ifthenpay/multibanco",
-    "description": "Método de pagamento multibanco Ifthenpay para Magento 2",
-    "type": "magento2-module",
-    "version": "1.0.0",
-    "license": [
-        "OSL-3.0"
-    ],
+  "name": "manuelrocha88/magento2-Ifthenpay_Multibanco",
+  "description": "Método de pagamento multibanco Ifthenpay para Magento 2",
+  "keywords": [
+    "gateway",
+    "merchant",
+    "magento2",
+    "pay",
+    "payment",
+    "ifthenpay",
+    "multibanco"
+  ],
+  "homepage": "https://www.ifthenpay.com",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": "MIT",
 	"require": {
-        "php": "~5.5.0|~5.6.0|~7.0.0"
-    },
-    "extra": {
-        "map": [
-            [
-                "*",
-                "Ifthenpay/Multibanco"
-            ]
-        ]
-    }
+    "php": "~5.5.0|~5.6.0|~7.0.0"
+  },
+  "extra": {
+    "map": [
+      [
+        "*",
+        "Ifthenpay/Multibanco"
+      ]
+    ]
+  },
+  "minimum-stability": "dev"
 }
