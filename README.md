@@ -1,6 +1,6 @@
 Ifthenpay Multibanco payment gateway extension for Magento2
 ===========================================================
-![Multibanco](https://raw.githubusercontent.com/manuelrocha88/magento2-Ifthenpay_Multibanco/master/mb.jpg) ![Ifthenpay](https://raw.githubusercontent.com/manuelrocha88/magento2-Ifthenpay_Multibanco/master/itplogo.png)
+![Multibanco](https://raw.githubusercontent.com/manuelrocha88/magento2-Ifthenpay_Multibanco/master/mblogo.jpg) ![Ifthenpay](https://raw.githubusercontent.com/manuelrocha88/magento2-Ifthenpay_Multibanco/master/itplogo.png)
 
 [![Latest Stable Version](https://poser.pugx.org/ifthenpay/multibanco-magento/v/stable)](https://packagist.org/packages/ifthenpay/multibanco-magento) [![Total Downloads](https://poser.pugx.org/ifthenpay/multibanco-magento/downloads)](https://packagist.org/packages/ifthenpay/multibanco-magento) [![License](https://poser.pugx.org/ifthenpay/multibanco-magento/license)](https://packagist.org/packages/ifthenpay/multibanco-magento)
 
