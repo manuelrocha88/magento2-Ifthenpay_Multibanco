@@ -11,7 +11,7 @@
 
 namespace Ifthenpay\Multibanco\Model\Resources;
 
-class Callback extends \Magento\Framework\Model\Resource\Db\AbstractDb
+class Callback extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
     public function _construct()
     {
