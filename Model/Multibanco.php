@@ -13,25 +13,20 @@ namespace Ifthenpay\Multibanco\Model;
 
 class Multibanco extends \Magento\Payment\Model\Method\AbstractMethod
 {
-
-
-  const PAYMENT_METHOD_MULTIBANCO_CODE = 'ifthenpay_multibanco';
+    const PAYMENT_METHOD_MULTIBANCO_CODE = 'ifthenpay_multibanco';
 
   /**
    * Payment method code
    *
    * @var string
    */
-  protected $_code = self::PAYMENT_METHOD_MULTIBANCO_CODE;
-  protected $_formBlockType = 'Ifthenpay\Multibanco\Block\Form\Multibanco';
-  protected $_infoBlockType = 'Ifthenpay\Multibanco\Block\Info\Multibanco';
-  protected $_isOffline = true;
+    public $_code = self::PAYMENT_METHOD_MULTIBANCO_CODE;
+    public $_formBlockType = 'Ifthenpay\Multibanco\Block\Form\Multibanco';
+    public $_infoBlockType = 'Ifthenpay\Multibanco\Block\Info\Multibanco';
+    public $_isOffline = true;
 
-  public function getInstructions()
-  {
-      return trim($this->getConfigData('instructions'));
-  }
-
-
-
+    public function getInstructions()
+    {
+        return trim($this->getConfigData('instructions'));
+    }
 }

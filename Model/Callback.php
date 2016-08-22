@@ -13,9 +13,8 @@ namespace Ifthenpay\Multibanco\Model;
 
 class Callback extends \Magento\Framework\Model\AbstractModel
 {
-    public function _construct() {
-        $this->_init('Ifthenpay\Multibanco\Model\Resource\Callback');
-      }
+    public function _construct()
+    {
+        $this->_init('Ifthenpay\Multibanco\Model\Resources\Callback');
+    }
 }
-
-?>

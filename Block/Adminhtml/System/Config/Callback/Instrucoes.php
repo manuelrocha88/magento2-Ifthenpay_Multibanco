@@ -23,18 +23,18 @@ class Instrucoes extends \Magento\Config\Block\System\Config\Form\Field
      *
      * @var string
      */
-    protected $_template = 'system/config/callback/instrucoes.phtml';
+    public $_template = 'system/config/callback/instrucoes.phtml';
 
-    protected $_ifthenpayMbHelper;
+    public $_ifthenpayMbHelper;
 
-        public function __construct(
-            \Magento\Backend\Block\Template\Context $context,
-            \Ifthenpay\Multibanco\Helper\Data $ifthenpayMbHelper,
-            array $data = []
-        ) {
-            parent::__construct($context, $data);
-            $this->_ifthenpayMbHelper = $ifthenpayMbHelper;
-        }
+    public function __construct(
+        \Magento\Backend\Block\Template\Context $context,
+        \Ifthenpay\Multibanco\Helper\Data $ifthenpayMbHelper,
+        array $data = []
+    ) {
+        parent::__construct($context, $data);
+        $this->_ifthenpayMbHelper = $ifthenpayMbHelper;
+    }
 
     /**
      * Render fieldset html
@@ -48,20 +48,24 @@ class Instrucoes extends \Magento\Config\Block\System\Config\Form\Field
         return $this->_decorateRowHtml($element, "<td colspan='{$columns}'>" . $this->toHtml() . '</td>');
     }
 
-    public function getEntidade(){
-      return $this->_ifthenpayMbHelper->getEntidade();
+    public function getEntidade()
+    {
+        return $this->_ifthenpayMbHelper->getEntidade();
     }
 
-    public function getSubentidade(){
-      return $this->_ifthenpayMbHelper->getSubentidade();
+    public function getSubentidade()
+    {
+        return $this->_ifthenpayMbHelper->getSubentidade();
     }
 
-    public function getUrlCallback(){
-      return $this->_storeManager->getStore()->getBaseUrl()."ifthenpay/Callback/Check/k/[CHAVE_ANTI_PHISHING]/e/[ENTIDADE]/r/[REFERENCIA]/v/[VALOR]";
+    public function getUrlCallback()
+    {
+        return $this->_storeManager->getStore()->getBaseUrl().
+        "ifthenpay/Callback/Check/k/[CHAVE_ANTI_PHISHING]/e/[ENTIDADE]/r/[REFERENCIA]/v/[VALOR]";
     }
 
-    public function getAntiPhishingKey(){
-      return $this->_ifthenpayMbHelper->getAntiPhishing();
+    public function getAntiPhishingKey()
+    {
+        return $this->_ifthenpayMbHelper->getAntiPhishing();
     }
 }
-?>

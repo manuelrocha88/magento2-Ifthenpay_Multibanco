@@ -15,14 +15,14 @@ namespace Ifthenpay\Multibanco\Block\Form;
  */
 class Multibanco extends \Magento\Payment\Block\Form
 {
-  protected $_template = 'form/multibanco.phtml';
+    public $_template = 'form/multibanco.phtml';
 
     /**
      * Instructions text
      *
      * @var string
      */
-    protected $_instructions;
+    public $_instructions;
 
     /**
      * Get instructions text from config
