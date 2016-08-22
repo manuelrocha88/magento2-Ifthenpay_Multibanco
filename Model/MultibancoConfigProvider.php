@@ -20,19 +20,19 @@ class MultibancoConfigProvider implements ConfigProviderInterface
     /**
      * @var string[]
      */
-    protected $methodCodes = [
+    public $methodCodes = [
         Multibanco::PAYMENT_METHOD_MULTIBANCO_CODE,
     ];
 
     /**
      * @var \Magento\Payment\Model\Method\AbstractMethod[]
      */
-    protected $methods = [];
+    public $methods = [];
 
     /**
      * @var Escaper
      */
-    protected $escaper;
+    public $escaper;
 
     /**
      * @param PaymentHelper $paymentHelper
@@ -68,7 +68,7 @@ class MultibancoConfigProvider implements ConfigProviderInterface
      * @param string $code
      * @return string
      */
-    protected function getInstructions($code)
+    public function getInstructions($code)
     {
         return nl2br($this->escaper->escapeHtml($this->methods[$code]->getInstructions()));
     }

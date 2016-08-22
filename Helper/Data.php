@@ -11,18 +11,17 @@
 
 namespace Ifthenpay\Multibanco\Helper;
 
-
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     const IFTHENPAY_ENTIDADE = 'payment/ifthenpay_multibanco/ifthenpay_entidade';
     const IFTHENPAY_SUBENTIDADE = 'payment/ifthenpay_multibanco/ifthenpay_subentidade';
     const IFTHENPAY_ANTIPHISHING = 'payment/ifthenpay_multibanco/ifthenpay_chave_anti_phishing';
 
-    protected $_configTable;
-    protected $_orderTable;
-    protected $connection;
+    public $_configTable;
+    public $_orderTable;
+    public $connection;
 
-    protected $_orderFactory;
+    public $_orderFactory;
 
     /**
      * @param \Magento\Framework\App\Helper\Context $context
@@ -35,7 +34,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $this->_configTable = $resource->getTableName('core_config_data');
         $this->_orderTable = $resource->getTableName('sales_order');
         $this->_orderFactory = $orderFactory;
-      $this->connection = $resource->getConnection();
+        $this->connection = $resource->getConnection();
 
         parent::__construct($context);
     }
@@ -56,13 +55,15 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         );
     }
 
-    public function getOrderState($orderid){
+    public function getOrderState($orderid)
+    {
         $order = $this->_orderFactory->create()->load($orderid);
 
         return $order->getStatus();
     }
 
-    public function setOrderAsPaid($orderid){
+    public function setOrderAsPaid($orderid)
+    {
         $order = $this->_orderFactory->create()->load($orderid);
 
         $order->setState(\Magento\Sales\Model\Order::STATE_PROCESSING)
@@ -75,7 +76,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $select = $this->connection
             ->select()
-            ->from($this->_orderTable,'entity_id')
+            ->from($this->_orderTable, 'entity_id')
             ->where('entity_id LIKE \'%' . $refid . '\'')
             ->where('status = \'pending\'')
             ->where('grand_total = ' . $valor)
@@ -84,33 +85,38 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return $this->connection->fetchOne($select);
     }
 
-    public function getAntiPhishing(){
-      $chaveap = $this->scopeConfig->getValue(self::IFTHENPAY_ANTIPHISHING,\Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    public function getAntiPhishing()
+    {
+        $chaveap = $this->scopeConfig->getValue(self::IFTHENPAY_ANTIPHISHING, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
 
-      if($chaveap == "" || $chaveap == null)
-      {
-        $chaveap=md5(time());
+        if ($chaveap == "" || $chaveap == null) {
+            $chaveap=md5(time());
 
-        $bindValues = ['path' => self::IFTHENPAY_ANTIPHISHING ];
-        $select = $this->connection->select()->from($this->_configTable)->where('path = :path');
-        $exists = $this->connection->fetchOne($select, $bindValues);
+            $bindValues = ['path' => self::IFTHENPAY_ANTIPHISHING ];
+            $select = $this->connection->select()->from($this->_configTable)->where('path = :path');
+            $exists = $this->connection->fetchOne($select, $bindValues);
+            
+            $bind = ['value' => $chaveap];
 
-
-        $bind = ['value' => $chaveap];
-
-        if ($exists) {
-            $this->connection->update($this->_configTable, $bind, ['path=?' => self::IFTHENPAY_ANTIPHISHING]);
-        } else {
-            $bind['path'] = self::IFTHENPAY_ANTIPHISHING;
-            $bind['value'] = $chaveap;
-            $this->connection->insert($this->_configTable, $bind);
+            if ($exists) {
+                $this->connection->update($this->_configTable, $bind, ['path=?' => self::IFTHENPAY_ANTIPHISHING]);
+            } else {
+                $bind['path'] = self::IFTHENPAY_ANTIPHISHING;
+                $bind['value'] = $chaveap;
+                $this->connection->insert($this->_configTable, $bind);
+            }
         }
-      }
 
-      return $chaveap;
+        return $chaveap;
     }
 
-    public function checkIfAntiPhishingIsValid($ap){
-      return ($ap == $this->scopeConfig->getValue(self::IFTHENPAY_ANTIPHISHING,\Magento\Store\Model\ScopeInterface::SCOPE_STORE));
+    public function checkIfAntiPhishingIsValid($ap)
+    {
+        return (
+            $ap == $this->scopeConfig->getValue(
+                self::IFTHENPAY_ANTIPHISHING,
+                \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+            )
+        );
     }
 }
