@@ -12,8 +12,8 @@ The IFTHENPAY also offers an APP for Android, iOS and Windows Phone that allows 
 
 For more information visit us at http://www.ifthenpay.com.
 
-Install
-=======
+Install using Composer
+======================
 
 1. Go to Magento2 root folder
 
@@ -30,7 +30,22 @@ Install
     php bin/magento module:enable Ifthenpay_Multibanco --clear-static-content
     php bin/magento setup:upgrade
     ```
-4. Enable and configure Ifthenpay Multibanco in Magento Admin under Stores/Configuration/Payment Methods/Ifthenpay Multibanco
+4. Enable and configure Ifthenpay Multibanco in Magento Admin under **Stores/Configuration/Payment Methods/Ifthenpay Multibanco**
+
+Install using File Upload
+=========================
+
+1. Download the file that contain the last version of the module
+
+2. At Magento 2 root folder go to the **app** folder and create the structure **code/Ifthenpay/Multibanco**
+
+3. Put the content of the ZIP file inside the folder **Multibanco** created at step 2
+
+4. After that go to your **Magento 2 Administration**, click **System** option and then **Web Setup Wizard**
+
+5. On the new page click the **Component Manager** button and search for the component with name **ifthenpay/multibanco-magento** and **Enable* it at the action column
+
+6. Enable and configure Ifthenpay Multibanco in Magento Admin under **Stores/Configuration/Payment Methods/Ifthenpay Multibanco**
 
 Support
 =======
@@ -42,3 +57,12 @@ Do you have some kind of a problem with your Magento installation?
 Do you need some special plugin?
 
 Send me an email and ask for help or a quote: manuelrocha@manuelrocha.biz
+
+Found a bug?
+============
+
+Do you found a bug on my code? Help me to fix it:
+
+* [Open an Issue](https://github.com/manuelrocha88/magento2-Ifthenpay_Multibanco/issues/new) and describe where you found the bug/problem and/or explain how can I replicate the issue.
+
+* Fork the project, fix it and make a request.

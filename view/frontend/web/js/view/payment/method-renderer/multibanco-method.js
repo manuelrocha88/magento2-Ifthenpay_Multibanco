@@ -19,11 +19,11 @@
             },
 
 
-            getCode: function () {
+            getCode: function() {
                 return 'ifthenpay_multibanco';
             },
 
-            isActive: function () {
+            isActive: function() {
                 return true;
             },
             /**
@@ -34,5 +34,5 @@
                 return window.checkoutConfig.payment.instructions[this.item.method];
             }
         });
-     }
+    }
 );

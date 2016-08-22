@@ -10,25 +10,29 @@
 */
 namespace Ifthenpay\Multibanco\Block\Checkout\Onepage\Success;
 
+/**
+ * Billing agreement information on Order success page
+ */
 class MultibancoInfo extends \Magento\Framework\View\Element\Template
 {
     /**
      * @var \Magento\Checkout\Model\Session
      */
-    public $_checkoutSession;
+    protected $_checkoutSession;
 
-    public $_genRef = null;
-    public $_ifthenpayMbHelper;
+
+    protected $_genRef = null;
+    protected $_ifthenpayMbHelper;
 
     /**
      * @var \Magento\Customer\Model\Session
      */
-    public $_customerSession;
+    protected $_customerSession;
 
     /**
      * @var \Magento\Paypal\Model\Billing\AgreementFactory
      */
-    public $_agreementFactory;
+    protected $_agreementFactory;
 
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
@@ -56,30 +60,37 @@ class MultibancoInfo extends \Magento\Framework\View\Element\Template
         parent::__construct($context, $data);
     }
 
-    public function getEntidade()
+    /**
+     * Return billing agreement information
+     *
+     * @return string
+     */
+    protected function _toHtml()
     {
-        return $this->_ifthenpayMbHelper->getEntidade();
+        return parent::_toHtml();
+    }
+
+    public function getEntidade(){
+      return $this->_ifthenpayMbHelper->getEntidade();
     }
 
     public function getReferencia($comEspacos = false)
     {
-        return $this->_genRef->generateMbRef(
-            $this->_ifthenpayMbHelper->getEntidade(),
-            $this->_ifthenpayMbHelper->getSubentidade(),
-            $this->getOrder()->getRealOrderId(),
-            $this->getOrder()->getGrandTotal(),
-            $comEspacos
-        );
+        //return $this->getOrder()->getRealOrderId();
+        return $this->_genRef->GenerateMbRef(
+                              $this->_ifthenpayMbHelper->getEntidade(),
+                              $this->_ifthenpayMbHelper->getSubentidade(),
+                              $this->getOrder()->getRealOrderId(),
+                              $this->getOrder()->getGrandTotal(), $comEspacos);
     }
 
-    public function getValor()
-    {
-        return $this->getOrder()->formatPrice($this->getOrder()->getGrandTotal());
+    public function getValor(){
+      return $this->getOrder()->formatPrice($this->getOrder()->getGrandTotal());
     }
 
     public function getOrder()
     {
-        $order = $this->_checkoutSession->getLastRealOrder();
+      $order = $this->_checkoutSession->getLastRealOrder();
 
         return $order;
     }

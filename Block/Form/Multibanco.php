@@ -10,16 +10,19 @@
 */
 namespace Ifthenpay\Multibanco\Block\Form;
 
+/**
+ * Abstract class for Cash On Delivery and Bank Transfer payment method form
+ */
 class Multibanco extends \Magento\Payment\Block\Form
 {
-    public $_template = 'form/multibanco.phtml';
+  protected $_template = 'form/multibanco.phtml';
 
     /**
      * Instructions text
      *
      * @var string
      */
-    public $_instructions;
+    protected $_instructions;
 
     /**
      * Get instructions text from config
