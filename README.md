@@ -58,6 +58,8 @@ Do you need some special plugin?
 
 Send me an email and ask for help or a quote: manuelrocha@manuelrocha.biz
 
+My Website: www.manuelrocha.biz
+
 Found a bug?
 ============
 
