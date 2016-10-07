@@ -17,6 +17,8 @@ use Magento\Payment\Helper\Data as PaymentHelper;
 
 class MultibancoConfigProvider implements ConfigProviderInterface
 {
+    const CODE = 'ifthenpay_multibanco';
+
     /**
      * @var string[]
      */

@@ -13,6 +13,7 @@
  * @var \Ifthenpay\Multibanco\Block\Checkout\Onepage\Success\MultibancoInfo $block
  */
 ?>
+<?php if ($block->isIfthenpayMultibancoPayment()){ ?>
 <p>
 <div>
 <table style="width: 300px; margin: 0 auto;">
@@ -57,3 +58,4 @@
 </table>
 </div>
 </p>
+<?php } ?>

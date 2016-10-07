@@ -56,6 +56,15 @@ class MultibancoInfo extends \Magento\Framework\View\Element\Template
         parent::__construct($context, $data);
     }
 
+    public function isIfthenpayMultibancoPayment(){
+        if ($this->getOrder()->getPayment()){
+            if($this->getOrder()->getPayment()->getMethod() == 'ifthenpay_multibanco') {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function getEntidade()
     {
         return $this->_ifthenpayMbHelper->getEntidade();
