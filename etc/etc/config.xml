@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Ifthenpay_Multibanco module dependency
+*
+* @category    Gateway Payment
+* @package     Ifthenpay_Multibanco
+* @author      Manuel Rocha
+* @copyright   Manuel Rocha (http://www.manuelrocha.biz)
+* @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <ifthenpay_multibanco>
+                <active>1</active>
+                <model>Ifthenpay\Multibanco\Model\Multibanco</model>
+                <order_status>pending</order_status>
+                <sort_order>1</sort_order>
+                <title><![CDATA[Pagamento por Multibanco]]></title>
+                <ifthenpay_entidade></ifthenpay_entidade>
+                <ifthenpay_subentidade></ifthenpay_subentidade>
+                <instructions><![CDATA[Pague por refer&ecirc;ncia multibanco]]></instructions>
+                <allowspecific>0</allowspecific>
+            </ifthenpay_multibanco>
+        </payment>
+    </default>
+</config>
