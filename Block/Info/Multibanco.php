@@ -68,7 +68,7 @@ class Multibanco extends \Magento\Payment\Block\Info
         return $this->_genRef->GenerateMbRef(
             $this->_ifthenpayMbHelper->getEntidade(),
             $this->_ifthenpayMbHelper->getSubentidade(),
-            $this->getOrderAdmin()->getRealOrderId(),
+            $this->getOrderAdmin()->getIncrementId(),
             $this->getOrderAdmin()->getGrandTotal(),
             $comEspacos
         );
