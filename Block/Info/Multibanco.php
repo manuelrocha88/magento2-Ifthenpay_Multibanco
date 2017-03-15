@@ -76,7 +76,12 @@ class Multibanco extends \Magento\Payment\Block\Info
 
     public function getValorAdmin()
     {
-        return $this->getOrderAdmin()->formatPrice($this->getOrderAdmin()->getGrandTotal());
+        return $this->getValorAdminFormat()->formatPrice($this->getOrderAdmin()->getGrandTotal());
+    }
+
+    private function getValorAdminFormat()
+    {
+        return ($this->coreRegistry->registry('current_order')) != null?($this->coreRegistry->registry('current_order')):($this->coreRegistry->registry('current_invoice')->getOrder());
     }
 
     public function getReferenciaFront($comEspacos = false)
@@ -97,7 +102,7 @@ class Multibanco extends \Magento\Payment\Block\Info
 
     public function getOrderAdmin()
     {
-        return ($this->coreRegistry->registry('current_order'));
+        return ($this->coreRegistry->registry('current_order')) != null?($this->coreRegistry->registry('current_order')):($this->coreRegistry->registry('current_invoice'));
     }
 
     public function getOrderFront()
