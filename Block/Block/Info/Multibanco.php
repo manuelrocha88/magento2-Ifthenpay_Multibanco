@@ -65,22 +65,44 @@ class Multibanco extends \Magento\Payment\Block\Info
 
     public function getReferenciaAdmin($comEspacos = false)
     {
+        $id = $this->getOrderAdmin()->getIncrementId();
+
+        if($id == null){
+            $order  = $this->getOrderAdmin()->getOrder();
+            $id = $order->getDataByKey("entity_id");
+        }
+
+        $valor = $this->getOrderAdmin()->getGrandTotal();
+
+        if($valor == null){
+            $order  = $this->getOrderAdmin()->getOrder();
+            $valor = $order->getDataByKey("grand_total");
+        }
+
         return $this->_genRef->GenerateMbRef(
             $this->_ifthenpayMbHelper->getEntidade(),
             $this->_ifthenpayMbHelper->getSubentidade(),
-            $this->getOrderAdmin()->getRealOrderId(),
-            $this->getOrderAdmin()->getGrandTotal(),
+            $id,
+            $valor,
             $comEspacos
         );
     }
 
     public function getValorAdmin()
     {
-        return $this->getOrderAdmin()->formatPrice($this->getOrderAdmin()->getGrandTotal());
+        $valor = $this->getOrderAdmin()->getGrandTotal();
+
+        if($valor == null){
+            $order  = $this->getOrderAdmin()->getOrder();
+            $valor = $order->getDataByKey("grand_total");
+        }
+
+        return $this->getOrderAdmin()->formatPrice($valor);
     }
 
     public function getReferenciaFront($comEspacos = false)
     {
+
         return $this->_genRef->GenerateMbRef(
             $this->_ifthenpayMbHelper->getEntidade(),
             $this->_ifthenpayMbHelper->getSubentidade(),
@@ -97,7 +119,7 @@ class Multibanco extends \Magento\Payment\Block\Info
 
     public function getOrderAdmin()
     {
-        return ($this->coreRegistry->registry('current_order'));
+         return ($this->coreRegistry->registry('current_order')) != null?($this->coreRegistry->registry('current_order')):(($this->coreRegistry->registry('current_invoice')) != null?($this->coreRegistry->registry('current_invoice')):($this->coreRegistry->registry('current_shipment')));
     }
 
     public function getOrderFront()
