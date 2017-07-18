@@ -129,7 +129,7 @@ class Multibanco extends \Magento\Payment\Block\Info
 
     public function getOrderIdFront()
     {
-        return $this->getOrderFront()->getData('parent_id');
+        return $this->getOrderFront()->getData('entity_id');
     }
 
     public function getTotalFront()
