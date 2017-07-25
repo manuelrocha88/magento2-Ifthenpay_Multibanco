@@ -43,7 +43,7 @@ class Multibanco extends \Magento\Payment\Block\Info
         \Magento\Checkout\Model\Session $checkoutSession,
         \Ifthenpay\Multibanco\Helper\GerarReferencias $genRef,
         \Ifthenpay\Multibanco\Helper\Data $ifthenpayMbHelper,
-        \Magento\Sales\Model\Order $order,
+        \Magento\Sales\Api\Data\OrderInterface $order,
         array $data = []
     ) {
         $this->coreRegistry = $registry;
@@ -106,8 +106,8 @@ class Multibanco extends \Magento\Payment\Block\Info
         return $this->_genRef->GenerateMbRef(
             $this->_ifthenpayMbHelper->getEntidade(),
             $this->_ifthenpayMbHelper->getSubentidade(),
-            $this->getOrderIdFront(),
-            $this->getTotalFront(),
+            $this->getInfo()->getOrder()->getData('increment_id'),
+            $this->getInfo()->getOrder()->getData('grand_total'),
             $comEspacos
         );
     }
