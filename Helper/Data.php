@@ -77,7 +77,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $select = $this->connection
             ->select()
             ->from($this->_orderTable, 'entity_id')
-            ->where('entity_id LIKE \'%' . $refid . '\'')
+            ->where('increment_id LIKE \'%' . $refid . '\'')
             ->where('status = \'pending\'')
             ->where('grand_total = ' . $valor)
             ->order('created_at DESC');

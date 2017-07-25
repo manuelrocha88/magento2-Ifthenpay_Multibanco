@@ -69,7 +69,7 @@ class Multibanco extends \Magento\Payment\Block\Info
 
         if($id == null){
             $order  = $this->getOrderAdmin()->getOrder();
-            $id = $order->getDataByKey("entity_id");
+            $id = $order->getDataByKey("increment_id");
         }
 
         $valor = $this->getOrderAdmin()->getGrandTotal();
