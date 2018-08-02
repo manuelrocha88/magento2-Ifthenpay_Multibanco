@@ -11,6 +11,8 @@
 
 namespace Ifthenpay\Multibanco\Helper;
 
+use Ifthenpay\Multibanco\Model\Service\CreateInvoiceService;
+
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     const IFTHENPAY_ENTIDADE = 'payment/ifthenpay_multibanco/ifthenpay_entidade';
@@ -24,16 +26,23 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public $_orderFactory;
 
     /**
+     * @var Ifthenpay\Multibanco\Model\Service\CreateInvoiceService
+     */
+    protected $createInvoiceService;
+
+    /**
      * @param \Magento\Framework\App\Helper\Context $context
      */
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,
         \Magento\Framework\App\ResourceConnection $resource,
-        \Magento\Sales\Model\OrderFactory $orderFactory
+        \Magento\Sales\Model\OrderFactory $orderFactory,
+        CreateInvoiceService $createInvoiceService
     ) {
         $this->_configTable = $resource->getTableName('core_config_data');
         $this->_orderTable = $resource->getTableName('sales_order');
         $this->_orderFactory = $orderFactory;
+        $this->createInvoiceService = $createInvoiceService;
         $this->connection = $resource->getConnection();
 
         parent::__construct($context);
@@ -65,6 +74,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function setOrderAsPaid($orderid)
     {
         $order = $this->_orderFactory->create()->load($orderid);
+
+        $this->createInvoiceService->createInvoice($order);
 
         $order->setState(\Magento\Sales\Model\Order::STATE_PROCESSING)
             ->setStatus($order->getConfig()->getStateDefaultStatus(\Magento\Sales\Model\Order::STATE_PROCESSING));
